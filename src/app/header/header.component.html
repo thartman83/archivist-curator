@@ -3,7 +3,7 @@
     <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
       <span class="navbar-toggler-icon"></span>
     </button>     
-    <a class="navbar-brand mx-auto" href="#">The Archives</a>
+    <a class="navbar-brand mx-auto" routerLink="/home">The Archives</a>
     
     <form class="d-flex">
       <input class="form-control mr-sm-2" type="search" placeholder="Search the archives" aria-label="Search the archivess">
@@ -18,10 +18,10 @@
       <div class="offcanvas-body">
 	<ul class="nav">
 	  <li class="nav-item">
-	    <a class="nav-link" href="#">Add New Record</a>
+	    <a class="nav-link" data-bs-dismiss="offcanvas" aria-label="Add New Record" routerLink="/newrecord">Add New Record</a>
 	  </li>
 	  <li class="nav-item">
-	    <a class="nav-link" href="#">Add Scanned Record</a>
+	    <a class="nav-link" >Add Scanned Record</a>
 	  </li>
 	</ul>
       </div>

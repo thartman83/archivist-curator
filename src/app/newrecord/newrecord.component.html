@@ -1,6 +1,6 @@
 <div class="container pt-3">
   <h5 class="text-justify">Add a New Record</h5>
-  <form>
+  <form [formGroup]="newRecordForm" (ngSubmit)="createRecord()">
     <ngx-dropzone (change)="onSelect($event)">  
       <ngx-dropzone-label>Add record here</ngx-dropzone-label>
       <ngx-dropzone-preview *ngFor="let f of files" [removable]="true" (removed)="onRemove(f)">  
@@ -9,9 +9,10 @@
     </ngx-dropzone> 
     
     <label class="form-label" for="recordName">Record Name</label>
-    <input class="form-control" name="recordName" type="text" value=""/>
+    <input class="form-control" name="recordName" type="text" formControlName="recordName" value=""/>
 
     <label class="form-label" for="recordNotes">Record Notes</label>
-    <textarea class="form-control" cols="30" id="recordNotes" name="recordNotes" rows="5"></textarea>
+    <textarea class="form-control" cols="30" id="recordNotes" name="recordNotes" formControlName="recordNotes" rows="5"></textarea>
+    <button class="btn btn-primary" type="submit">Add</button>
   </form>
 </div>

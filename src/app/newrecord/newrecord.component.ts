@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder } from '@angular/forms'
+import { RecordService } from '../record.service'
 
 @Component({
   selector: 'app-newrecord',
@@ -6,8 +8,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./newrecord.component.scss']
 })
 export class NewrecordComponent implements OnInit {
-
-  constructor() { }
+  newRecordForm = this._formBuilder.group({
+    recordName: '',
+    recordNotes: ''
+  });
+  
+  constructor(private _recordService: RecordService, private _formBuilder: FormBuilder) {    
+  }
 
   ngOnInit(): void {
   }
@@ -20,6 +27,14 @@ export class NewrecordComponent implements OnInit {
   
   onRemove(event: any) {
     this.files.splice(this.files.indexOf(event), 1);
+  }
+
+  createRecord() {
+    //this._recordService.createRecord().subscribe()
+    console.log('here')
+  }
+
+  onSubmit(): void {
   }
 
   files: File[] = [];

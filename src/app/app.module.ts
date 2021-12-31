@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HttpClientJsonpModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { NgxDropzoneModule } from 'ngx-dropzone';
@@ -11,14 +11,16 @@ import { HeaderComponent } from './header/header.component';
 import { HomeComponent } from './home/home.component';
 import { NewrecordComponent } from './newrecord/newrecord.component';
 
-import { RecordService } from './record.service'
+import { RecordService } from './record.service';
+import { StatusComponent } from './status/status.component'
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     HomeComponent,
-    NewrecordComponent
+    NewrecordComponent,
+    StatusComponent
   ],
   imports: [
     BrowserModule,
@@ -27,7 +29,8 @@ import { RecordService } from './record.service'
     NgxDropzoneModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientJsonpModule
   ],
   providers: [RecordService],
   bootstrap: [AppComponent]

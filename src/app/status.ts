@@ -1,24 +1,24 @@
 export interface IStatus {
   up: boolean,
-  environment: {
+  environment?: {
     dbhost: string,
     database: string,
     dbengine: string,
     dbuser: string,
     storage_location: string
   },
-  database: {
+  database?: {
     engine: {
       dialect: string,
       table_names: string[]
     },
-    config: [
+    config: {
       database: string,
       driver: string,
       host: string,
-      post: number,
+      post: string,
       username: string
-    ],
+    },
     initialized: boolean
   }
 }

@@ -1,0 +1,29 @@
+$fa-font-path: "~/@fortawesome/fontawesome-free/webfonts";
+@import "~@fortawesome/fontawesome-free/scss/fontawesome.scss";
+
+@mixin top-padding {
+    padding-top: 1.0rem!important;
+}
+
+.row {
+    @include top-padding;
+}
+
+@mixin status-list {
+    background-color: #e9ecef;
+    opacity: 1;		      
+}
+
+.list-group-item {
+    @include status-list
+}
+
+button.btn:not(collapsed):after {
+    content: fa-content($fa-var-chevron-down);
+    padding-left: .25rem
+}
+
+button.btn.collapsed:after {
+    content: fa-content($fa-var-chevron-right);
+    padding-left: .25rem
+}

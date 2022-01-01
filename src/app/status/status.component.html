@@ -1,1 +1,88 @@
-<p>status works!</p>
+<div class="container pt-3">
+  <h5>Archivist Status</h5>
+  <div class="row">
+    <div class="col">      
+      <label class="form-label" for="Up">Catalog Status</label>
+      <input class="form-control" name="Up" type="text" readonly="true" value="{{_status?.up}}"/>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col">
+      <button class="btn" role="button" data-bs-toggle="collapse" data-bs-target="#environSec" aria-controls="false" aria-controls="collapseExample" for="Database">Environment Information</button>
+      <div class="container collapse show" id="environSec">
+	  <div class="row">
+	    <div class="col-6">
+	      <label class="form-label" for="dbhost">Database Host</label>
+	      <input class="form-control" name="dbhost" type="text" readonly value="{{_status?.environment?.dbhost}}"/>
+	    </div>
+	    <div class="col">
+	      <label class="form-label" for="dbname">Database Name</label>
+	      <input class="form-control" readonly name="dbname" type="text" value="{{_status?.environment?.database}}"/>
+	    </div>
+	  </div>
+	  <div class="row">
+	    <div class="col-6">
+	      <label class="form-label" for="dbengine">Database Engine</label>
+	      <input class="form-control" name="dbengine" type="text" readonly value="{{_status?.environment?.dbengine}}"/>
+	    </div>
+	    <div class="col-6">
+	      <label class="form-label" for="dbuser">Database User</label>
+	      <input class="form-control" name="dbuser" readonly type="text" value="{{_status?.environment?.dbuser}}"/>
+	    </div>	  
+	  </div>
+	  <div class="row">
+	    <div class="col">
+	      <label class="form-label" for="storagelocation">Storage Location</label>
+	      <input class="form-control" name="storagelocation" type="text" readonly value="{{_status?.environment?.storage_location}}"/>
+	    </div>
+	  </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col">
+      <button class="btn" data-bs-toggle="collapse" data-bs-target="#dbInfoSec">Database Information</button>
+      <div class="container">
+	<div class="collapse show" id="dbInfoSec">
+	  <div class="row">
+	    <div class="col">
+	      <button class="btn" data-bs-toggle="collapse" data-bs-target="#engineSec">Engine Information</button>
+	      <div class="container collapse show" id="engineSec">
+		<div class="row">
+		  <div class="col">
+		    <label class="form-label" for="dialect">Dialect</label>
+		      <input class="form-control" readonly name="dialect" type="text" value="{{_status?.database?.engine?.dialect}}"/>
+		  </div>		  
+		</div>
+		<div class="row">
+		  <div class="col">
+		    <label class="form-label" for="tables">Tables</label>
+		    <ul id="tables" class="list-group">
+		      <li class="list-group-item" *ngFor="let table of _status?.database?.engine?.table_names">{{table}}</li>
+		    </ul>
+		  </div>
+		</div>
+	      </div>
+	    </div>
+	  </div>
+	  <div class="row">
+	    <div class="col">
+              <button class="btn" data-bs-toggle="collapse" data-bs-target="#configSec">Database Configuration</button>
+	      <div class="container collapse show" id="configSec">
+		<div class="row">
+		  <div class="col-6" *ngFor="let item of _status?.database?.config | keyvalue">
+		    <label class="form-label" for="{{item.key}}">{{item.key | titlecase}}</label>
+		    <input class="form-control" name="item.key" type="text" readonly value="{{item.value}}"/>
+		  </div>
+		</div>
+	      </div>
+	    </div>
+	  </div>
+	  
+	</div>
+      </div>
+    </div>
+  </div>
+</div>

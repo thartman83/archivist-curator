@@ -9,16 +9,19 @@ import { IStatus } from '../status'
 })
 export class StatusComponent implements OnInit {
   _status: IStatus | undefined
-  _json: JSON | undefined
   
   constructor(private _statusService: StatusService) {
+    this._status = { up: false }
     this._statusService.getStatus().subscribe((data: IStatus) => {
       this._status = {...data}
-      console.log(this._status);
     });    
   }
 
   ngOnInit(): void {
   }
 
+  getType(val: any): string {
+    return typeof val;
+  }
+  
 }

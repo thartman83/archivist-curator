@@ -1,0 +1,48 @@
+$fa-font-path: "~/@fortawesome/fontawesome-free/webfonts";
+@import "~@fortawesome/fontawesome-free/scss/fontawesome.scss";
+@import "../archivist-curator.scss";
+
+.archivist-header {
+    background-color: $archivist-header-bg;
+}
+
+.offcanvas-header {
+    background-color: $archivist-header-bg;
+
+    &>.offcanvas-title {
+	color: $archivist-dark-text;
+    }
+    &>.btn-close {
+	background-color: $archivist-dark-text;
+    }
+}
+
+.menu-group {
+    &::before {
+	display: block;	
+    }
+}
+
+.menu-link {
+    display: block;
+    font-size: 20px;
+    color: $archivist-primary-text;
+
+    &.add-record::before {
+	content: fa-content($fa-var-plus-square);	
+	padding-right: .25rem;
+	align-items: center;
+    }
+    
+    &::after {
+	display: block;
+	content: attr(tool-tip);
+	color: $archivist-primary-text;
+	font-size: 12px;
+    }
+
+    &:hover {
+	border-width: 10px;
+	background-color: $archivist-highlight;
+    }
+}

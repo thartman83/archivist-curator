@@ -1,4 +1,4 @@
-<nav class="navbar navbar-dark bg-dark">
+<nav class="navbar navbar-dark archivist-header">
   <div class="container-fluid">
     <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
       <span class="navbar-toggler-icon"></span>
@@ -12,19 +12,24 @@
 
     <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar">
       <div class="offcanvas-header">
-	<div class="offcanvas-title">Add Records</div>
+	<div class="offcanvas-title">Menu</div>
 	<button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
       </div>
       <div class="offcanvas-body">
-	<ul class="nav">
-	  <li class="nav-item">
-	    <a class="nav-link" data-bs-dismiss="offcanvas" aria-label="Add New Record" routerLink="/newrecord">Add New Record</a>
-	  </li>
-	  <li class="nav-item">
-	    <a class="nav-link" >Add Scanned Record</a>
-	  </li>
-	  <li class="nav-item"><a class="nav-link" data-bs-dismiss="offcanvas" routerLink="/status">Status</a></li>
-	</ul>
+	<div class="menu">
+	  <ul class="nav flex-fill">
+	    <li class="nav-item menu-group">	      
+	      <a class="nav-link menu-link add-record" data-bs-dismiss="offcanvas" aria-label="Add New Record"
+		 routerLink="/newrecord" tool-tip="Add a new record to the archives" >Add New Record</a>
+	      <a class="nav-link menu-link add-record" data-bs-dismiss="offcanvas"
+		 routerLink="/newrecord" tool-tip="Scan a new record to the archives" >Add Scanned Record</a>
+	    </li>
+	    <li class="nav-item menu-group">
+	      <a class="nav-link menu-link" data-bs-dismiss="offcanvas"
+		 routerLink="/status" tool-tip="Display status information about the archives (Admin Only)">Status</a>
+	    </li>	    
+	  </ul>	  
+	</div>
       </div>
     </div>    
   </div>

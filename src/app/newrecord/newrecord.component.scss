@@ -1,3 +1,20 @@
+@import '../archivist-curator.scss';
+
 ngx-dropzone {
     justify-content: center;
+}
+
+.btn-primary {
+    color: $archivist-primary-text;
+    background-color: $archivist-primary-bg;
+    border-color: $archivist-primary-bg;
+}
+
+.button-bar {
+    margin-top: 0.5rem;
+    justify-content: right;
+}
+
+ngx-dropzone {
+    border: none;
 }

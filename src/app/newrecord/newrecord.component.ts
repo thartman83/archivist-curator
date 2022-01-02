@@ -20,9 +20,8 @@ export class NewrecordComponent implements OnInit {
   }
 
   onSelect(event: any) {
-    console.log(event);
-
     this.files.push(...event.addedFiles);
+    this.newRecordForm.setValue({ recordName: this.files[0].name, recordNotes: ""});
   }
   
   onRemove(event: any) {

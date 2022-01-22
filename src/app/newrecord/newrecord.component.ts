@@ -11,12 +11,13 @@ export class NewrecordComponent implements OnInit {
   newRecordForm = this._formBuilder.group({
     recordName: '',
     recordNotes: ''
-  });
+  });  
   
-  constructor(private _recordService: RecordService, private _formBuilder: FormBuilder) {    
+  constructor(private _recordService: RecordService, private _formBuilder: FormBuilder) {
   }
 
-  ngOnInit(): void {
+  ngOnInit(): void {      
+
   }
 
   onSelect(event: any) {
@@ -28,9 +29,23 @@ export class NewrecordComponent implements OnInit {
     this.files.splice(this.files.indexOf(event), 1);
   }
 
+  getBase64(file: File) {
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.readAsDataURL(file);
+      reader.onload = () => resolve(reader.result);
+      reader.onerror = error => reject(error);
+    });
+  }
+
   createRecord() {
-    //this._recordService.createRecord().subscribe()
-    console.log('here')
+    let reader = new FileReader();
+    let file = this.files[0];
+    
+    reader.readAsDataURL(this.files[0]);
+    
+    let rs = this._recordService
+    this.getBase64(file).then(data => rs.createRecord('NewName', data as string).subscribe());
   }
 
   onSubmit(): void {

@@ -9,3 +9,8 @@ $archivist-primary-bg: #34ebcc;
 $archivist-primary-text: black;
 
 $archivist-dark-text: white;
+
+$fa-font-path: "~/@fortawesome/fontawesome-free/webfonts";
+@import "~@fortawesome/fontawesome-free/scss/fontawesome.scss";
+
+

@@ -14,6 +14,8 @@ import { NewrecordComponent } from './newrecord/newrecord.component';
 import { RecordService } from './record.service';
 import { StatusComponent } from './status/status.component'
 
+import { NgSelect2Module } from "ng-select2";
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,7 +32,8 @@ import { StatusComponent } from './status/status.component'
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientJsonpModule
+    HttpClientJsonpModule,
+    NgSelect2Module    
   ],
   providers: [RecordService],
   bootstrap: [AppComponent]

@@ -18,3 +18,16 @@ ngx-dropzone {
 ngx-dropzone {
     border: none;
 }
+
+.tag-bar {
+    display: flex;
+
+    &::after {	
+	content: fa-content($fa-var-chevron-down);
+	margin-left: -1.25em;
+	margin-top: .25em;
+	z-index: 2;
+		 
+    }
+}
+

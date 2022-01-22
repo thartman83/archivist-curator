@@ -8,7 +8,7 @@ import { IRecord } from './record'
   providedIn: 'root'
 })
 export class RecordService {  
-  catalogUrl = 'localhost'
+  catalogUrl = 'http://localhost:8000/record'
   
   constructor(private http: HttpClient) {
 
@@ -18,8 +18,16 @@ export class RecordService {
     return this.http.post<IRecord>(this.catalogUrl, record)
   }
 
-  createRecord() : Observable<IRecord> {
-    let data = {}
-    return this.http.post<IRecord>(this.catalogUrl, data)
-  }  
+  createRecord(name: string, fileData: string) : Observable<IRecord> {
+//      mimetype: fileData.split(',')[0].split(':')[1].split(';')[0],
+    
+    let data = {
+      name: name,
+      data: fileData.split(',')[1],
+      extension: 'pdf',
+      pagecount: 3
+    }      
+
+    return this.http.post<IRecord>(this.catalogUrl, data);
+  }
 }

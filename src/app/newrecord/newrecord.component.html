@@ -7,12 +7,30 @@
 	<ngx-dropzone-label>{{ f.name }} ({{ f.type }})</ngx-dropzone-label>  
       </ngx-dropzone-preview>  
     </ngx-dropzone> 
-    
-    <label class="form-label" for="recordName">Record Name</label>
-    <input class="form-control" name="recordName" type="text" formControlName="recordName" value=""/>
 
-    <label class="form-label" for="recordNotes">Record Notes</label>
-    <textarea class="form-control" cols="30" id="recordNotes" name="recordNotes" formControlName="recordNotes" rows="5"></textarea>
+    <div class="row">
+      <div class="col">
+	<label class="form-label" for="recordName">Record Name</label>
+	<input class="form-control" name="recordName" type="text" formControlName="recordName" value=""/>
+      </div>
+    </div>
+    
+    <div class="row">
+      <div class="col">
+	<label class="form-label" for="tags">Tags</label>
+	<input class="form-control" name="tags" type="text" value=""/>
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="col">
+	<label class="form-label" for="recordNotes">Record Notes</label>
+	<textarea class="form-control" cols="30" id="recordNotes" name="recordNotes" formControlName="recordNotes" rows="5">	  
+	</textarea>
+      </div>
+    </div>
+    
     <div class="button-bar d-flex">
       <button class="btn btn-primary" type="submit">Add</button>
     </div>    

@@ -10,6 +10,7 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { HomeComponent } from './home/home.component';
 import { NewrecordComponent } from './newrecord/newrecord.component';
+import { RecordViewComponent } from './record-view/record-view.component';
 
 import { RecordService } from './record.service';
 import { StatusComponent } from './status/status.component'
@@ -22,7 +23,8 @@ import { NgSelect2Module } from "ng-select2";
     HeaderComponent,
     HomeComponent,
     NewrecordComponent,
-    StatusComponent
+    StatusComponent,
+    RecordViewComponent    
   ],
   imports: [
     BrowserModule,

@@ -12,6 +12,6 @@ export class StatusService {
   constructor(private _http: HttpClient) { }
 
   getStatus(): Observable<IStatus> {
-    return this._http.get<IStatus>(this._statusUrl);    
+    return this._http.get<IStatus>(this._statusUrl);
   }
 }

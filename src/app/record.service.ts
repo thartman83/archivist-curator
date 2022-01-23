@@ -3,6 +3,7 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http'
 import { Observable, throwError } from 'rxjs'
 import { catchError, retry} from 'rxjs/operators'
 import { IRecord } from './record'
+//import { ObservableInputTuple } from 'rxjs/dist/types/internal/types';
 
 @Injectable({
   providedIn: 'root'
@@ -30,4 +31,9 @@ export class RecordService {
 
     return this.http.post<IRecord>(this.catalogUrl, data);
   }
+
+  getRecord(recordId : number) : Observable<IRecord> {
+    return this.http.get<IRecord>(this.catalogUrl + "/" + recordId);
+  }
 }
+

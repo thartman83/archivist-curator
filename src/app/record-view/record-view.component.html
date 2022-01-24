@@ -1,0 +1,9 @@
+<div class="container pt-3">
+  <h5>{{_record?.name}}</h5>
+
+  <div *ngFor="let page of _record?.pages" class="row">
+    <div class="col">
+      <img class="img-fluid" [src]="_pagesData[page.order-1]">
+    </div>
+  </div>
+</div>

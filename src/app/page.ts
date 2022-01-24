@@ -5,5 +5,6 @@ export interface IPage {
   location: string,
   size: number,
   hash: string,
-  record_id: number
+  record_id: number,
+  data: string
 }

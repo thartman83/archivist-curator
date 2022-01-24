@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { FormBuilder } from '@angular/forms'
 import { RecordService } from '../record.service'
+import { IRecord } from '../record';
 
 @Component({
   selector: 'app-newrecord',
@@ -11,9 +13,10 @@ export class NewrecordComponent implements OnInit {
   newRecordForm = this._formBuilder.group({
     recordName: '',
     recordNotes: ''
-  });  
+  });
   
-  constructor(private _recordService: RecordService, private _formBuilder: FormBuilder) {
+  constructor(private _recordService: RecordService, private _formBuilder: FormBuilder,
+	      private _route: Router) {
   }
 
   ngOnInit(): void {      
@@ -45,7 +48,11 @@ export class NewrecordComponent implements OnInit {
     reader.readAsDataURL(this.files[0]);
     
     let rs = this._recordService
-    this.getBase64(file).then(data => rs.createRecord('NewName', data as string).subscribe());
+    this.getBase64(file).then(data => {
+      rs.createRecord(this.newRecordForm.controls['recordName'].value, data as string).subscribe((data : IRecord) => {
+	this._route.navigate([`record/${data.id}`]);
+      });
+    });
   }
 
   onSubmit(): void {

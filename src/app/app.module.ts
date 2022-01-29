@@ -16,6 +16,7 @@ import { RecordService } from './record.service';
 import { StatusComponent } from './status/status.component'
 
 import { NgSelect2Module } from "ng-select2";
+import { ScanRecordComponent } from './scan-record/scan-record.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { NgSelect2Module } from "ng-select2";
     HomeComponent,
     NewrecordComponent,
     StatusComponent,
-    RecordViewComponent    
+    RecordViewComponent,
+    ScanRecordComponent    
   ],
   imports: [
     BrowserModule,

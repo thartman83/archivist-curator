@@ -31,3 +31,20 @@ ngx-dropzone {
     }
 }
 
+.spinner-border {
+    display: none;
+}
+
+form.busy {
+    .button-bar {
+	.btn-primary span{
+	    display: inline-block !important;
+	}
+
+	button {
+	    pointer-events: none;
+	    opacity: .65;
+	}
+    }
+}
+

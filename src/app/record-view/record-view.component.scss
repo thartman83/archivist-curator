@@ -1,0 +1,61 @@
+@import "../archivist-curator.scss";
+
+.page-data {
+    border: 1px solid;
+    box-shadow: 10px 10px 8px #888888;    
+}
+
+.sticky-top {
+    position: sticky;
+    top: 0;
+    align-self: flex-start!important;
+}
+
+.record-aside {
+  grid-area: 1 / 6;
+  scroll-margin-top: 4rem;
+}
+
+.page-body {
+    grid-template-column: 1fr 4fr;
+    grid-column: 1 / span 2;
+}
+
+.record-body {
+    display: grid;
+    --bs-light-rgb: 248,249,250;
+    --bs-bg-opacity: 1;
+    background-color: rgba(var(--bs-light-rgb), var(--bs-bg-opacity))!important;
+}
+
+.smol {
+}
+
+.center-page {
+    align-items: center;
+}
+
+.record-body.busy {
+    height: 100%
+}
+
+.modal-full {
+    height: 100%;
+}
+
+.modal-full .modal-contents {
+    height: 100%;
+}
+
+.record-body.busy #spinner {
+    height: 100%;
+    display: block !important;
+}
+
+.record-body.busy .record-aside {
+    display: none;
+}
+
+.record-body.busy .page-body {
+    display: none;
+}

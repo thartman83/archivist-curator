@@ -1,9 +1,40 @@
-<div class="container pt-3">
-  <h5>{{_record?.name}}</h5>
+<div class="record-body busy">
 
-  <div *ngFor="let page of _record?.pages" class="row">
-    <div class="col">
-      <img class="img-fluid" [src]="_pagesData[page.order-1]">
+  <aside class="record-aside sticky-top text-muted px-2">
+    <h2 class="container-header h6 border-bottom mb-3 pt-4 pb-3">
+      Metadata</h2>
+    <div name="sidebar-container" class="container-fluid"> 
+      <div class="row">
+	<div class="col">
+	  <label class="input-label" for="filename">Filename</label>    
+	  <input class="form-control" name="filename" type="text" value="{{_record?.name}}" readonly disabled/>
+	</div>
+      </div>
+    </div>
+
+    <h2 class="h6 container-header border-bottom mb-3 pt-4 pb-3">Thumbnails</h2>
+    <div class="container-fluid">
+	<div class="row" *ngFor="let page of _record?.pages">
+	  <div class="col">
+	    <img class="img-thumbnail smol mb-4" alt="" [src]="_pagesData[page.order-1]"/>
+	  </div>
+	</div>
+    </div>
+    
+  </aside>
+
+  <div class="container-fluid page-body pt-3">
+    <div *ngFor="let page of _record?.pages" class="row">
+      <div class="col">
+	<img class="img-fluid page-data mb-4 mx-auto d-block" [src]="_pagesData[page.order-1]">      
+      </div>
     </div>
   </div>
+
+  <div class="modal-full modal-dialog" id="spinner">
+    <div class="modal-contents">
+      <div class="spinner-border" role="status" aria-hidden="true"></div>
+    </div>
+  </div>
+
 </div>

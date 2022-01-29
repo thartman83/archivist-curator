@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { FormBuilder } from '@angular/forms'
 import { RecordService } from '../record.service'
 import { IRecord } from '../record';
+import { ElementRef } from '@angular/core';
 
 @Component({
   selector: 'app-newrecord',
@@ -16,7 +17,7 @@ export class NewrecordComponent implements OnInit {
   });
   
   constructor(private _recordService: RecordService, private _formBuilder: FormBuilder,
-	      private _route: Router) {
+	      private _route: Router, private _el: ElementRef) {
   }
 
   ngOnInit(): void {      
@@ -44,6 +45,9 @@ export class NewrecordComponent implements OnInit {
   createRecord() {
     let reader = new FileReader();
     let file = this.files[0];
+
+    // Set the page to busy
+    this.busy(true);
     
     reader.readAsDataURL(this.files[0]);
     
@@ -56,6 +60,16 @@ export class NewrecordComponent implements OnInit {
   }
 
   onSubmit(): void {
+  }
+
+  busy(isBusy: boolean) {
+    let form = this._el.nativeElement.querySelector('form');
+
+    if(isBusy) {
+      form.classList.add('busy');
+    } else {
+      form.classList.remove('busy');
+    }
   }
 
   files: File[] = [];

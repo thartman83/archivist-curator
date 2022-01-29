@@ -1,7 +1,7 @@
 <div class="container pt-3">
   <h5 class="text-justify">Add a New Record</h5>
   <form [formGroup]="newRecordForm" (ngSubmit)="createRecord()">
-    <ngx-dropzone (change)="onSelect($event)">  
+    <ngx-dropzone (change)="onSelect($event)" id="newFile" [multiple]="false">  
       <ngx-dropzone-label>Add record here</ngx-dropzone-label>
       <ngx-dropzone-preview *ngFor="let f of files" [removable]="true" (removed)="onRemove(f)">  
 	<ngx-dropzone-label>{{ f.name }} ({{ f.type }})</ngx-dropzone-label>  
@@ -32,7 +32,7 @@
     </div>
     
     <div class="button-bar d-flex">
-      <button class="btn btn-primary" type="submit">
+      <button [disabled]="newRecordForm.invalid" class="btn btn-primary" type="submit">
 	<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
 	Add</button>
     </div>    

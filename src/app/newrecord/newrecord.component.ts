@@ -13,25 +13,28 @@ import { ElementRef } from '@angular/core';
 export class NewrecordComponent implements OnInit {
   newRecordForm: FormGroup;
   submitted: boolean;
+  files: File[] = [];
   
-  constructor(private _recordService: RecordService, private _formBuilder: FormBuilder,
+  constructor(private _recordService: RecordService,
+              private _formBuilder: FormBuilder,
 	      private _route: Router, private _el: ElementRef) {
     
     this.newRecordForm = this._formBuilder.group({
-      recordName: new FormControl('', [Validators.required]),
+      title: new FormControl('', [Validators.required]),
       recordNotes: new FormControl(''),
-      newFile: new FormControl(null,[Validators.required])
+      file: new FormControl(null, [Validators.required])
     });
 
-    this.submitted = false;    
+    this.submitted = false;
   }
 
-  ngOnInit(): void {    
+  ngOnInit(): void {
   }
 
-  onSelect(event: any) {    
+  onSelect(event: any) {
     this.files.push(...event.addedFiles);
-    this.newRecordForm.patchValue({ recordName: this.files[0].name, newFile: this.files[0].name});
+    this.newRecordForm.patchValue({ title: this.files[0].name,
+                                    file: this.files[0]});
   }
   
   onRemove(event: any) {
@@ -49,9 +52,6 @@ export class NewrecordComponent implements OnInit {
   }
 
   createRecord() {
-    let reader = new FileReader();
-    let file = this.files[0];
-    
     // Set the page to busy
     this.submitted = true;
     this.busy(true);
@@ -59,15 +59,18 @@ export class NewrecordComponent implements OnInit {
     if(this.newRecordForm.invalid) {
       return;
     }
-    
-    reader.readAsDataURL(this.files[0]);
-    
-    let rs = this._recordService
-    this.getBase64(file).then(data => {
-      rs.createRecord(this.newRecordForm.controls['recordName'].value, data as string).subscribe((data : IRecord) => {
-	this._route.navigate([`record/${data.id}`]);
+
+    let rs = this._recordService;
+
+    try {
+      let ret = rs.createRecord(this.newRecordForm);
+
+      ret.subscribe(res => {
+        this._route.navigate('/collection', res.id);
       });
-    });
+    } catch {
+
+    }
   }
 
   onSubmit(): void {
@@ -82,7 +85,5 @@ export class NewrecordComponent implements OnInit {
       form.classList.remove('busy');
     }
   }
-
-  files: File[] = [];
 
 }

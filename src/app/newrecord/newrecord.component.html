@@ -1,40 +1,45 @@
 <div class="container pt-3">
-  <h5 class="text-justify">Add a New Record</h5>
+  <h5 class="text-justify">Add a Record</h5>
   <form [formGroup]="newRecordForm" (ngSubmit)="createRecord()">
-    <ngx-dropzone (change)="onSelect($event)" id="newFile" [multiple]="false">  
-      <ngx-dropzone-label>Add record here</ngx-dropzone-label>
-      <ngx-dropzone-preview *ngFor="let f of files" [removable]="true" (removed)="onRemove(f)">  
-	<ngx-dropzone-label>{{ f.name }} ({{ f.type }})</ngx-dropzone-label>  
+    <ngx-dropzone (change)="onSelect($event)" name="file" id="file"
+                  [multiple]="false">
+      <ngx-dropzone-label>Drag Files or Click Here</ngx-dropzone-label>
+      <ngx-dropzone-preview *ngFor="let f of files" [removable]="true"
+                            (removed)="onRemove(f)">
+	      <ngx-dropzone-label>{{ f.name }} ({{ f.type }})</ngx-dropzone-label>
       </ngx-dropzone-preview>  
     </ngx-dropzone> 
 
     <div class="row">
       <div class="col">
-	<label class="form-label" for="recordName">Record Name</label>
-	<input class="form-control" name="recordName" type="text" formControlName="recordName" value=""/>
+	      <label class="form-label" for="title">Title</label>
+	      <input class="form-control" name="title" type="text"
+	             formControlName="title" value=""/>
       </div>
     </div>
     
     <div class="row">
       <div class="col">
-	<label class="form-label" for="tags">Tags</label>
-	<input class="form-control" name="tags" type="text" value=""/>
+	      <label class="form-label" for="tags">Tags</label>
+	      <input class="form-control" name="tags" type="text" value=""/>
       </div>
     </div>
 
 
     <div class="row">
       <div class="col">
-	<label class="form-label" for="recordNotes">Record Notes</label>
-	<textarea class="form-control" cols="30" id="recordNotes" name="recordNotes" formControlName="recordNotes" rows="5">	  
-	</textarea>
+	      <label class="form-label" for="recordNotes">Record Notes</label>
+	      <textarea class="form-control" cols="30" id="recordNotes"
+	                name="recordNotes" formControlName="recordNotes" rows="5">
+	      </textarea>
       </div>
     </div>
     
     <div class="button-bar d-flex">
-      <button [disabled]="newRecordForm.invalid" class="btn btn-primary" type="submit">
-	<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
-	Add</button>
+      <button [disabled]="newRecordForm.invalid" class="btn btn-primary"
+              type="submit">
+	      <span class="spinner-border spinner-border-sm" role="status"
+	            aria-hidden="true"></span> Add</button>
     </div>    
   </form>
 </div>

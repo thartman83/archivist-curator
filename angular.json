@@ -113,5 +113,8 @@
 	    }
 	}
     },
-    "defaultProject": "archivist-curator"
+    "defaultProject": "archivist-curator",
+    "cli": {
+      "analytics": false
+    }
 }

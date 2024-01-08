@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { ConfigComponent } from './config/config.component';
 import { HomeComponent } from './home/home.component';
 import { NewrecordComponent } from './newrecord/newrecord.component';
 import { RecordViewComponent } from './record-view/record-view.component';
@@ -12,7 +13,8 @@ const routes: Routes = [
   { path: "newrecord", component: NewrecordComponent},
   { path: "scanrecord", component: ScanRecordComponent},
   { path: "status", component: StatusComponent},
-  { path: "record/:recordid", component: RecordViewComponent }
+  { path: "record/:recordid", component: RecordViewComponent },
+  { path: "config", component: ConfigComponent }
 ];
 
 @NgModule({

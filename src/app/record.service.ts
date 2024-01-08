@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { FormGroup } from '@angular/forms';
+import { UntypedFormGroup } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { IRecord } from './record';
@@ -18,7 +18,7 @@ export class RecordService {
     return this.http.post<IRecord>(this.catalogUrl, record)
   }
 
-  createRecord(data: FormGroup) {
+  createRecord(data: UntypedFormGroup) {
     let formData = new FormData();
 
     formData.append('title', data.controls['title'].value);

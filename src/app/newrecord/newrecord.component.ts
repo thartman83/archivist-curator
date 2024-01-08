@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms'
+import { UntypedFormBuilder, UntypedFormGroup, UntypedFormControl, Validators } from '@angular/forms'
 import { RecordService } from '../record.service'
 import { IRecord } from '../record';
 import { ElementRef } from '@angular/core';
@@ -11,18 +11,18 @@ import { ElementRef } from '@angular/core';
   styleUrls: ['./newrecord.component.scss']
 })
 export class NewrecordComponent implements OnInit {
-  newRecordForm: FormGroup;
+  newRecordForm: UntypedFormGroup;
   submitted: boolean;
   files: File[] = [];
   
   constructor(private _recordService: RecordService,
-              private _formBuilder: FormBuilder,
+              private _formBuilder: UntypedFormBuilder,
 	      private _route: Router, private _el: ElementRef) {
     
     this.newRecordForm = this._formBuilder.group({
-      title: new FormControl('', [Validators.required]),
-      recordNotes: new FormControl(''),
-      file: new FormControl(null, [Validators.required])
+      title: new UntypedFormControl('', [Validators.required]),
+      recordNotes: new UntypedFormControl(''),
+      file: new UntypedFormControl(null, [Validators.required])
     });
 
     this.submitted = false;

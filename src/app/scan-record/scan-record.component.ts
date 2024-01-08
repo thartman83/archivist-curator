@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { FormBuilder } from '@angular/forms';
+import { UntypedFormBuilder } from '@angular/forms';
 import { RecordService } from '../record.service';
 import { IRecord } from '../record';
 
@@ -13,7 +13,7 @@ export class ScanRecordComponent implements OnInit {
   scanRecordForm = this._formBuilder.group({
   });
 
-  constructor(private _recordService: RecordService, private _formBuilder: FormBuilder,
+  constructor(private _recordService: RecordService, private _formBuilder: UntypedFormBuilder,
 	      private _route: Router) { }
 
   ngOnInit(): void {

@@ -1,12 +1,37 @@
 <div class="busy">
-  <div class="container">
+  <div class="container mt-4">
+    <div class="h3">
+      {{collection?.current_edition?.native?.title}}
+      <button type="button" class="btn">
+        <i class="bi bi-download" aria-hidden="true"></i>
+      </button>
+    </div>
     <div class="row">
-      <div class="col">
-        <label class="input-label" for="title">
-          Title
-        </label>
-        <input class="form-control" name="title" type="text"
-               value="{{collection?.title}}" readonly disabled/>
+      <div class="col-3">
+        <div class="row pb-2">
+          <div class="col">
+            <label class="form-label" for="filename">Filename</label>
+            <input class="form-control" name="filename"
+                   value="{{collection?.current_edition?.native?.filename}}"/>
+          </div>
+        </div>
+        <div class="row pb-2">
+          <div class="col">
+            <label class="form-label" for="datecreated">Date Created</label>
+            <input class="form-control" name="datecreated" type="text"
+                   value="{{collection?.current_edition?.native?.created}}"/>
+          </div>
+        </div>
+        <div class="row pb-2">
+          <div class="col">
+            <label class="form-label" for="mimetype">Mimetype</label>
+            <input class="form-control" name="mimetype" type="text"
+                   value="{{collection?.current_edition?.native?.mimetype}}"/>
+          </div>
+        </div>
+      </div>
+      <div class="col9">
+
       </div>
     </div>
   </div>

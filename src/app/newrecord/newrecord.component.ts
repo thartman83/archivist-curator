@@ -66,7 +66,7 @@ export class NewrecordComponent implements OnInit {
       let ret = rs.createRecord(this.newRecordForm);
 
       ret.subscribe(res => {
-        this._route.navigate('/collection', res.id);
+        this._route.navigate(['/collection', res.id]);
       });
     } catch {
 

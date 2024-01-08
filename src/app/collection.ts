@@ -4,5 +4,5 @@ export interface ICollection {
   id: number,
   title: string,
   editions: IEdition[],
-  currentEdition: number
+  current_edition: IEdition
 }

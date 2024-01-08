@@ -18,6 +18,8 @@ import { StatusComponent } from './status/status.component'
 import { NgSelect2Module } from "ng-select2";
 import { ScanRecordComponent } from './scan-record/scan-record.component';
 import { ConfigComponent } from './config/config.component';
+import { CollectionComponent } from './collection/collection.component';
+
 
 @NgModule({
   declarations: [
@@ -28,7 +30,8 @@ import { ConfigComponent } from './config/config.component';
     StatusComponent,
     RecordViewComponent,
     ScanRecordComponent,
-    ConfigComponent    
+    ConfigComponent,
+    CollectionComponent
   ],
   imports: [
     BrowserModule,
